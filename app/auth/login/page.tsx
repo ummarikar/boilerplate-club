@@ -6,6 +6,7 @@ import config from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { UserAuthForm } from "@/components/user-auth-form";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Log in",
@@ -54,7 +55,9 @@ export default function AuthenticationPage() {
                 Enter your email below to log in
               </p>
             </div>
-            <UserAuthForm />
+            <Suspense fallback={<p>loading...</p>}>
+              <UserAuthForm />
+            </Suspense>
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
               <Link
