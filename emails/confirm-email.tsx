@@ -13,7 +13,7 @@ import { Section } from "@react-email/section";
 import { Text } from "@react-email/text";
 import * as React from "react";
 import config from "@/lib/config";
-import { getURL } from "next/dist/shared/lib/utils";
+import { getURL } from "@/lib/utils";
 
 interface ConfirmEmailProps {
   appLink?: string;

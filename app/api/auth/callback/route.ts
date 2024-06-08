@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import config from "@/lib/config";
+import { getURL } from "@/lib/utils";
 
 export async function GET(request: Request) {
   // The `/auth/callback` route is required for the server-side auth flow implemented
@@ -29,8 +30,7 @@ export async function GET(request: Request) {
 
   // URL to redirect to after sign in process completes
   return NextResponse.redirect(
-    `${requestUrl.origin}${config.urls.callback}${
-      priceId ? `?priceId=${priceId}` : ""
+    `${getURL()}${config.urls.callback}${priceId ? `?priceId=${priceId}` : ""
     }`,
   );
 }
