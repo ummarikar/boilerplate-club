@@ -1,6 +1,7 @@
 ## Boilerplate Club
 
 This is a boilerplate SaaS web app with the following:
+
 - Nextjs
 - Supabase (auth + database)
 - Resend
