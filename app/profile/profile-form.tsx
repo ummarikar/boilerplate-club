@@ -147,7 +147,7 @@ export function ProfileForm({ email, subscription }: ProfileFormProps) {
               </FormItem>
             )}
           />
-          <div className="flex items-baseline justify-between">
+          <div className="flex flex-col gap-2 sm:flex-row sm:gap-0 items-baseline justify-between">
             <Button disabled={isLoading} type="submit">
               {isLoading && (
                 <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
@@ -163,7 +163,7 @@ export function ProfileForm({ email, subscription }: ProfileFormProps) {
       <div className="flex flex-col gap-4">
         <div className="flex items-center space-x-4 rounded-md border p-4">
           <div className="flex w-full flex-col space-y-1">
-            <div className="mb-2 flex justify-between">
+            <div className="mb-2 flex flex-col justify-between sm:flex-row">
               <div>
                 <p className="mb-2 mt-1 text-sm font-medium leading-none">
                   Current plan
@@ -177,7 +177,7 @@ export function ProfileForm({ email, subscription }: ProfileFormProps) {
               <div className="flex items-baseline">
                 {price && (
                   <>
-                    <span className="mr-1 mt-2 inline-block align-bottom text-2xl font-extrabold tracking-tight">
+                    <span className="mr-1 mt-2 ml-2 inline-block align-bottom text-2xl font-extrabold tracking-tight sm:ml-0">
                       {price}
                     </span>
                     <p className="text-sm text-muted-foreground">
@@ -188,7 +188,7 @@ export function ProfileForm({ email, subscription }: ProfileFormProps) {
               </div>
             </div>
             <Separator />
-            <div className="flex items-baseline justify-between">
+            <div className="flex flex-col gap-2 items-baseline justify-between sm:flex-row sm:gap-0">
               <Button
                 disabled={isLoading}
                 className="mt-2"

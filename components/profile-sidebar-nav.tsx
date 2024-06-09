@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
@@ -17,28 +18,50 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const pathname = usePathname();
 
   return (
-    <nav
-      className={cn(
-        "flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1",
-        className,
-      )}
-      {...props}
-    >
-      {items.map((item) => (
-        <Link
-          key={item.title}
-          href={item.href}
-          className={cn(
-            buttonVariants({ variant: "ghost" }),
-            pathname === item.href
-              ? "bg-muted hover:bg-muted"
-              : "hover:bg-transparent hover:underline",
-            "justify-start",
-          )}
-        >
-          {item.title}
-        </Link>
-      ))}
-    </nav>
+    <>
+      <nav
+        className={cn(
+          "hidden lg:flex lg:flex-col lg:space-x-0 lg:space-y-1",
+          className,
+        )}
+        {...props}
+      >
+        {items.map((item) => (
+          <Link
+            key={item.title}
+            href={item.href}
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              pathname === item.href
+                ? "bg-muted hover:bg-muted"
+                : "hover:bg-transparent hover:underline",
+              "justify-start",
+            )}
+          >
+            {item.title}
+          </Link>
+        ))}
+      </nav>
+      <ScrollArea className="w-full">
+        <div className="flex w-max space-x-2 lg:hidden">
+          {items.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                pathname === item.href
+                  ? "bg-muted hover:bg-muted"
+                  : "hover:bg-transparent hover:underline",
+                "justify-start",
+              )}
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
+    </>
   );
 }
