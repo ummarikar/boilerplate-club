@@ -37,13 +37,15 @@ export default async function Dashboard({ searchParams }: DashboardProps) {
     redirect(stripeSession.url);
   }
   return (
-    <div className="container flex h-screen flex-col">
+    <>
       <Header />
-      <Alert className="m-auto max-w-lg">
-        <RocketIcon className="h-4 w-4" />
-        <AlertTitle>It's shipping time!</AlertTitle>
-        <AlertDescription>Add your app code in this route...</AlertDescription>
-      </Alert>
-    </div>
+      <div className="container flex h-screen flex-col">
+        <Alert className="m-auto max-w-lg">
+          <RocketIcon className="h-4 w-4" />
+          <AlertTitle>It's shipping time!</AlertTitle>
+          <AlertDescription>Add your app code in this route...</AlertDescription>
+        </Alert>
+      </div>
+    </>
   );
 }
